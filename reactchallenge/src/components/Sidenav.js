@@ -13,9 +13,9 @@ function Sidenav(props) {
   const [equipmentData, setEquipmentData] = useState();
   const [completionData, setCompletionData] = useState();
   const [displayDetail, setDisplayDetail] = useState({
-    title: undefined,
-    data: undefined
-  })
+    title: "",
+    data: undefined,
+  });
 
   const handleAperturesClick = async () => {
     props.setHideButtons(false);
@@ -25,6 +25,11 @@ function Sidenav(props) {
     //   completion: false,
     // });
 
+    setDisplayDetail({
+      title: "Aberturas",
+      data: aperturesData,
+    });
+
     if (!aperturesData) {
       const response = await fetch(
         "https://us-central1-prueba-front-280718.cloudfunctions.net/aberturas",
@@ -32,12 +37,12 @@ function Sidenav(props) {
           method: "GET",
         }
       );
-      setAperturesData(await response.json());
+      const responseJSON = await response.json();
+      setAperturesData(responseJSON);
+      setDisplayDetail((prevState) => {
+        return { ...prevState, data: responseJSON };
+      });
     }
-    setDisplayDetail({
-        title: "Aberturas",
-        data: aperturesData
-    });
     setIsDrawerOpen(true);
   };
 
@@ -49,6 +54,10 @@ function Sidenav(props) {
     //   completion: false,
     // });
 
+    setDisplayDetail({
+      title: "Equipamientos",
+      data: equipmentData,
+    });
     if (!equipmentData) {
       const response = await fetch(
         "https://us-central1-prueba-front-280718.cloudfunctions.net/equipamiento",
@@ -56,12 +65,12 @@ function Sidenav(props) {
           method: "GET",
         }
       );
-      setEquipmentData(await response.json());
+      const responseJSON = await response.json();
+      setEquipmentData(responseJSON);
+      setDisplayDetail((prevState) => {
+        return { ...prevState, data: responseJSON };
+      });
     }
-    setDisplayDetail({
-        title: "Equipamientos",
-        data: equipmentData
-    });
     setIsDrawerOpen(true);
   };
 
@@ -73,6 +82,10 @@ function Sidenav(props) {
     //   completion: !clickedButtons.completion,
     // });
 
+    setDisplayDetail({
+      title: "Terminaciones",
+      data: completionData,
+    });
     if (!completionData) {
       const response = await fetch(
         "https://us-central1-prueba-front-280718.cloudfunctions.net/terminaciones",
@@ -80,12 +93,12 @@ function Sidenav(props) {
           method: "GET",
         }
       );
-      setCompletionData(await response.json());
+      const responseJSON = await response.json();
+      setCompletionData(responseJSON);
+      setDisplayDetail((prevState) => {
+        return { ...prevState, data: responseJSON };
+      });
     }
-    setDisplayDetail({
-        title: "Terminaciones",
-        data: completionData
-    });
     setIsDrawerOpen(true);
   };
 
@@ -99,7 +112,7 @@ function Sidenav(props) {
         }}
         anchor="left"
       >
-        <DrawerDetail title={displayDetail.title} data={aperturesData} />
+        <DrawerDetail title={displayDetail.title} data={displayDetail.data} />
       </Drawer>
       <Stack spacing={5}>
         <Button variant="outlined" onClick={handleAperturesClick}>
