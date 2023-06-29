@@ -39,7 +39,7 @@ function Home() {
       </div>
       <div style={{ backgroundColor: "#F5F5F5" }}>
         {showButtons}
-        <Stack spacing={0}>
+        <Stack spacing={0} className={classes.fabStack}>
           <Fab
             onClick={() => {
               console.log("+ button clicked");
@@ -60,6 +60,7 @@ function Home() {
           </Fab>
         </Stack>
         <Fab
+        className={classes.expand}
           onClick={() => {
             console.log("Expand button clicked");
           }}

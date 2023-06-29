@@ -1,7 +1,19 @@
 .sidenav {
     float: left;
-    width: 10%;
+    width: 15%;
     height: 100%; /* only for demonstration, should be removed */
     background-color: #FFFFFF;
     padding: 20px;
   }
+
+  .expand {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  } 
+
+  .fabStack {
+    position: absolute;
+    bottom: 10px;
+    right: 100px;
+  } 
