@@ -6,30 +6,34 @@ import Sidenav from "../components/Sidenav";
 import { useState } from "react";
 
 function Home() {
-  const [openedDrawer, setOpenedDrawer] = useState(false);
+  const [hideButtons, setHideButtons] = useState(true);
 
-  let showButtons = openedDrawer ? (
+  let showButtons = hideButtons ? undefined : (
     <div>
       <Button
         style={{ backgroundColor: "#FFFFFF", color: "#484848" }}
         variant="contained"
-        onClick={() => {console.log("attach button clicked")}}
+        onClick={() => {
+          console.log("attach button clicked");
+        }}
       >
         Fijar
       </Button>
       <Button
         style={{ backgroundColor: "#FFFFFF", color: "#484848" }}
         variant="contained"
-        onClick={() => {console.log("delete button clicked")}}
+        onClick={() => {
+          console.log("delete button clicked");
+        }}
       >
         Borrar
       </Button>
     </div>
-  ) : undefined;
+  );
 
   return (
     <div style={{ backgroundColor: "#F5F5F5" }}>
-      <Sidenav setOpenedDrawer={setOpenedDrawer} />
+      <Sidenav setHideButtons={setHideButtons} />
       {showButtons}
       <Stack spacing={0}>
         <Fab
