@@ -41,7 +41,7 @@ function Home() {
       <div className={classes.sidenav}>
         <Sidenav setHideButtons={setHideButtons} />
       </div>
-      <div style={{ backgroundColor: "#F5F5F5", height: "100%" }}>
+      <div className={classes.home}>
         {showButtons}
         <div className={classes.fabStack}>
           <Stack spacing={0} paddingRight={3}>
