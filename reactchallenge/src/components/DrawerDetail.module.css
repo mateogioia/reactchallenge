@@ -1,0 +1,8 @@
+.title {
+    width: 450px
+}
+
+.items {
+    display: grid;
+    grid-template-columns: auto auto auto
+}

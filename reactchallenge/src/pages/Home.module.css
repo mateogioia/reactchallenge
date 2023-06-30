@@ -1,0 +1,20 @@
+.sidenav {
+  float: left;
+  width: 10%;
+  height: 74%;
+  background-color: #ffffff;
+  padding: 20px;
+  padding-top: 150px;
+}
+
+.home { 
+  background-color: #F5F5F5; 
+  height: 100%
+}
+
+.fabStack {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+}
