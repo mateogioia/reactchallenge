@@ -1,6 +1,7 @@
 import { Button, Stack, Drawer } from "@mui/material";
 import { useState } from "react";
 import DrawerDetail from "./DrawerDetail";
+import classes from './Sidenav.module.css';
 
 function Sidenav(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -96,7 +97,7 @@ function Sidenav(props) {
       </Drawer>
       <Stack spacing={5}>
         <Button
-          style={{ display: "flex", flexDirection: "column", color: "#000000" }}
+          className={classes.options}
           variant="text"
           onClick={handleAperturesClick}
         >
@@ -104,7 +105,7 @@ function Sidenav(props) {
           Aberturas
         </Button>
         <Button
-          style={{ display: "flex", flexDirection: "column", color: "#000000" }}
+          className={classes.options}
           variant="text"
           onClick={handleEquipmentClick}
         >
@@ -112,7 +113,7 @@ function Sidenav(props) {
           Equipamiento
         </Button>
         <Button
-          style={{ display: "flex", flexDirection: "column", color: "#000000" }}
+          className={classes.options}
           variant="text"
           onClick={handleCompletionClick}
         >

@@ -11,6 +11,7 @@ import { useState } from "react";
 import Item from "./Item";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import classes from './DrawerDetail.module.css'
 
 function DrawerDetail(props) {
   const [showCategories, setShowCategories] = useState(true);
@@ -27,7 +28,7 @@ function DrawerDetail(props) {
 
   let display = showCategories ? (
     <div>
-      <h3 style={{ width: 450 }}>{props.title}</h3>{" "}
+      <h3 className={classes.title}>{props.title}</h3>{" "}
       <List>
         {props.data.map((element, index) => (
           <ListItem key={element.name}>
@@ -39,7 +40,7 @@ function DrawerDetail(props) {
             </ListItemButton>
           </ListItem>
         ))}
-      </List>{" "}
+      </List>
     </div>
   ) : (
     <div>
@@ -47,18 +48,16 @@ function DrawerDetail(props) {
         <ChevronLeftIcon />
         <Typography>{props.title}</Typography>
       </IconButton>
-      <h3 style={{ width: 450 }}>{props.data[selectedIndex].name}</h3>{" "}
-      <List>
-        {props.data[selectedIndex].items.map((element) => (
-          <ListItem key={element.name}>
-            <Item
-              name={element.name}
-              img={element.img}
-              setShowCategories={setShowCategories}
-            />
-          </ListItem>
-        ))}
-      </List>{" "}
+      <h3 className={classes.title}>{props.data[selectedIndex].name}</h3>
+      <div className={classes.items}>
+      {props.data[selectedIndex].items.map((element) => (
+        <Item
+          name={element.name}
+          img={element.img}
+          setShowCategories={setShowCategories}
+        />
+      ))}
+      </div>
     </div>
   );
 
