@@ -10,9 +10,13 @@ function Home() {
   const [hideButtons, setHideButtons] = useState(true);
 
   let showButtons = hideButtons ? undefined : (
-    <div>
+    <div style={{ display: "flex" }}>
       <Button
-        style={{ backgroundColor: "#FFFFFF", color: "#484848" }}
+        style={{
+          backgroundColor: "#FFFFFF",
+          color: "#484848",
+          marginLeft: "auto",
+        }}
         variant="contained"
         onClick={() => {
           console.log("attach button clicked");
@@ -33,43 +37,67 @@ function Home() {
   );
 
   return (
-    <>
+    <div style={{ height: "100%" }}>
       <div className={classes.sidenav}>
         <Sidenav setHideButtons={setHideButtons} />
       </div>
-      <div style={{ backgroundColor: "#F5F5F5" }}>
+      <div style={{ backgroundColor: "#F5F5F5", height: "100%" }}>
         {showButtons}
-        <Stack spacing={0}>
-          <Fab
-            onClick={() => {
-              console.log("+ button clicked");
-            }}
-            color="primary"
-            aria-label="zoom-in"
-          >
-            <AddOutlinedIcon />
-          </Fab>
-          <Fab
-            onClick={() => {
-              console.log("- button clicked");
-            }}
-            color="primary"
-            aria-label="zoom-out"
-          >
-            <RemoveOutlinedIcon />
-          </Fab>
-        </Stack>
-        <Fab
-          onClick={() => {
-            console.log("Expand button clicked");
-          }}
-          color="primary"
-          aria-label="expand"
-        >
-          <OpenWithOutlinedIcon />
-        </Fab>
+        <div className={classes.fabStack}>
+          <Stack spacing={0} paddingRight={3}>
+            <Fab
+              variant="extended"
+              style={{
+                background: "#ffffff",
+                color: "#000000",
+                height: 60,
+                width: 30,
+              }}
+              onClick={() => {
+                console.log("+ button clicked");
+              }}
+              aria-label="zoom-in"
+            >
+              <AddOutlinedIcon />
+            </Fab>
+            <Fab
+              variant="extended"
+              style={{
+                background: "#ffffff",
+                color: "#000000",
+                height: 60,
+                width: 30,
+              }}
+              onClick={() => {
+                console.log("- button clicked");
+              }}
+              color="primary"
+              aria-label="zoom-out"
+            >
+              <RemoveOutlinedIcon />
+            </Fab>
+          </Stack>
+          <div style={{ paddingTop: 33 }}>
+            <Fab
+              variant="extended"
+              style={{
+                background: "#ffffff",
+                color: "#000000",
+                height: 60,
+                width: 60,
+              }}
+              onClick={() => {
+                console.log("Expand button clicked");
+              }}
+              color="primary"
+              aria-label="expand"
+            >
+              <OpenWithOutlinedIcon />
+            </Fab>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
