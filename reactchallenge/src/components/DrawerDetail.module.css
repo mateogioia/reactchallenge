@@ -3,6 +3,6 @@
 }
 
 .items {
-    display: 'grid';
-    grid-template-columns: 'auto auto auto'
+    display: grid;
+    grid-template-columns: auto auto auto
 }
