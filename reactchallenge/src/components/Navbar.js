@@ -1,19 +1,20 @@
 import { AppBar, MenuItem, Select, Toolbar, Typography } from "@mui/material";
-import FaceIcon from '@mui/icons-material/Face';
+import FaceIcon from "@mui/icons-material/Face";
 import { useState } from "react";
 
 function Navbar() {
-    const [saveMode, setSaveMode] = useState("Guardar y salir");
+  const [saveMode, setSaveMode] = useState("Guardar y salir");
 
-    const handleSaveModeChange = (event) => {
-        setSaveMode(event.target.value);
-      };
+  const handleSaveModeChange = (event) => {
+    setSaveMode(event.target.value);
+  };
 
   return (
-    <AppBar position="static" style={{backgroundColor: '#000000'}}>
+    <AppBar position="static" style={{ backgroundColor: "#000000" }}>
       <Toolbar>
         <FaceIcon />
         <Typography
+          padding={2}
           variant="h10"
           noWrap
           component="div"
@@ -27,7 +28,7 @@ function Navbar() {
           name="save"
           value={saveMode}
           onChange={handleSaveModeChange}
-          style={{color: '#FFFFFF', borderColor: '#FFFFFF'}}
+          style={{ color: "#FFFFFF" }}
         >
           <MenuItem value={"Guardar y salir"}>Guardar y salir</MenuItem>
           <MenuItem value={"Salir sin guardar"}>Salir sin guardar</MenuItem>

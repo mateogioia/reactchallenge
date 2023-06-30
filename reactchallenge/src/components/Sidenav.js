@@ -4,11 +4,6 @@ import DrawerDetail from "./DrawerDetail";
 
 function Sidenav(props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [clickedButtons, setClickedButtons] = useState({
-    apertures: false,
-    equipment: false,
-    completion: false,
-  });
   const [aperturesData, setAperturesData] = useState();
   const [equipmentData, setEquipmentData] = useState();
   const [completionData, setCompletionData] = useState();
@@ -19,11 +14,6 @@ function Sidenav(props) {
 
   const handleAperturesClick = async () => {
     props.setHideButtons(false);
-    // setClickedButtons({
-    //   apertures: !clickedButtons.apertures,
-    //   equipment: false,
-    //   completion: false,
-    // });
 
     setDisplayDetail({
       title: "Aberturas",
@@ -48,11 +38,6 @@ function Sidenav(props) {
 
   const handleEquipmentClick = async () => {
     props.setHideButtons(false);
-    // setClickedButtons({
-    //   apertures: false,
-    //   equipment: !clickedButtons.equipment,
-    //   completion: false,
-    // });
 
     setDisplayDetail({
       title: "Equipamientos",
@@ -76,11 +61,6 @@ function Sidenav(props) {
 
   const handleCompletionClick = async () => {
     props.setHideButtons(false);
-    // setClickedButtons({
-    //   apertures: false,
-    //   equipment: false,
-    //   completion: !clickedButtons.completion,
-    // });
 
     setDisplayDetail({
       title: "Terminaciones",
@@ -115,15 +95,27 @@ function Sidenav(props) {
         <DrawerDetail title={displayDetail.title} data={displayDetail.data} />
       </Drawer>
       <Stack spacing={5}>
-        <Button variant="outlined" onClick={handleAperturesClick}>
+        <Button
+          style={{ display: "flex", flexDirection: "column", color: "#000000" }}
+          variant="text"
+          onClick={handleAperturesClick}
+        >
           <img src="/Aberturas.png" alt="apertures" />
           Aberturas
         </Button>
-        <Button variant="outlined" onClick={handleEquipmentClick}>
+        <Button
+          style={{ display: "flex", flexDirection: "column", color: "#000000" }}
+          variant="text"
+          onClick={handleEquipmentClick}
+        >
           <img src="/Equipamiento.png" alt="equipment" />
           Equipamiento
         </Button>
-        <Button variant="outlined" onClick={handleCompletionClick}>
+        <Button
+          style={{ display: "flex", flexDirection: "column", color: "#000000" }}
+          variant="text"
+          onClick={handleCompletionClick}
+        >
           <img src="/Terminaciones.png" alt="completion" />
           Terminaciones
         </Button>
